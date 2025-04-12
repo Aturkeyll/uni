@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="week6Styles.css"> 
+    <script src="week6validation.js" defer></script>
+    <title>Quote</title>
+</head>
+
+
+<body>
+    <h1>Signing Form</h1>
+
+    <form action="https://twaaut.cdms.westernsydney.edu.au/twainfo/form.asp" method = "post" on>
+
+
+    <div class = "BaseContainer">
+
+        <div class = "Ctitle">
+            <label for = "Ctitle">Title</label>
+            <select name = "Ctitle" id = "Ctitle" >
+                <option value= "-"> - </option>
+                <option value ="Dr">Dr</option>
+                <option value ="Mrs">Mr</option>
+                <option value ="Mx">Mx</option>
+                <option value ="Miss">Miss</option>
+                <option value ="Rev">Rev</option>
+                <option value ="Hon">Hon</option>
+                <option value ="Ms">Ms</option>
+            </select>
+        </div>
+
+
+    
+        <div class ="ContainerN">
+            <div class="CustFname"> 
+                <label for="CFname" id = CustFname name="CustFname" >First Name</label>
+                <input type="text" id = "CFname" name="CFname" onblur="isValid(this)" >
+                </div>
+
+            <div class="CustLname">
+                <label for="CustLname" id = Custlname>Last Name</label>
+                <input type="text" id = "CustLname" name="CustLname" onblur="isValid(this)"  >
+            </div>
+
+            <div class="ContainerCustEmail">
+                <label for="CustEmail">Email</label>
+                <input type="text" id = "CustEmail" name="CustEmail" placeholder=" eg email12@domain.com" onblur="isValid(this)">
+            </div>
+        
+        
+            <div class ="ContainerTel">
+                <label for="PhNo">Phone Number</label>
+                <input type = "text" id = "PhNo" name="PhNo." placeholder="0123456789" onblur="isValid(this)"> 
+            </div>
+
+            <div class="ContainerSA">
+                <label for = "CAdress">Street Address</label>
+                <input type="text" id = "CAdress" name="CAdress" onblur="isValid(this)" >
+            </div>
+    
+            <div class ="ContainerSub">
+                <label for = "CSuburb">City</label>
+                <input type="text" id = "CSuburb" name="CSuburb"onblur="isValid(this)" >
+            </div>
+    
+    
+        <div class ="ContainerPC">
+            <label for = "CPostcode">Postcode</label>
+            <input type="text" id = "CPostcode" name="CPostcode"onblur="isValid(this)" >
+        </div>
+    
+
+        </div>
+
+        <div class = "ContainerDOQ">
+            <div class = "DOQ">
+                <label for="DoQ">Date of Quote</label>
+                <input type="date" id = "DoQ" name="DoQ" >
+            </div>
+        </div>
+
+
+        <div class = "ContainerCustRep">
+            <label for="custrep">Salesperson Name</label>
+            <input type="text" id = "custrep" name="custrep"  onblur="isValid(this)" >
+        </div>
+
+        <div class = "ContainerCustNum">
+            <label for="custNum">Salesperson Number</label>
+            <input type="text" id = "custrepnum" name="custrepnum"  onblur="isValid(this)" >
+        </div>
+
+
+  
+    </div>
+            
+
+            
+        <div class ="ContainerProd">
+            <table id ="products">
+            <tr> 
+            <th>Product ID</th>
+            <th>Product Description</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Line Total</th>
+            </tr>
+
+            <tr> 
+            <td><input type="text" id="ProductID1" name="ProductID" onblur="isValid(this)"></td>
+            <td><input type="text" id="ProductDescription1" name="ProductDescription" onblur="isValid(this)"></td>
+            <td><input type="text" id="Quantity1" name="Quantity" oninput="calcLineTotal('Quantity1', 'UnitPrice1', 'LineTotal1')" onblur="isValid(this)"></td>
+            <td><input type="text" id="UnitPrice1" name="UnitPrice" oninput="calcLineTotal('Quantity1', 'UnitPrice1', 'LineTotal1')" onblur="isValid(this)" ></td>
+            <td><input type="text" id="LineTotal1" readonly name="LineTotal" onchange="subtotal()"></td>
+            </tr>
+
+            <tr> 
+            <td><input type="text" id="ProductID2" name="ProductID"></td>
+            <td><input type="text" id="ProductDescription2" name="ProductDescription"></td>
+            <td><input type="text" id="Quantity2" name="Quantity" oninput="calcLineTotal('Quantity2', 'UnitPrice2', 'LineTotal2')"></td>
+            <td><input type="text" id="UnitPrice2" name="UnitPrice" oninput="calcLineTotal('Quantity2', 'UnitPrice2', 'LineTotal2')"></td>
+            <td><input type="text" id="LineTotal2" readonly name="LineTotal"></td>
+            </tr>
+
+            <tr> 
+            <td><input type="text" id="ProductID3" name="ProductID"></td>
+            <td><input type="text" id="ProductDescription3" name="ProductDescription"></td>
+            <td><input type="text" id="Quantity3" name="Quantity" oninput="calcLineTotal('Quantity3', 'UnitPrice3', 'LineTotal3')"></td>
+            <td><input type="text" id="UnitPrice3" name="UnitPrice" oninput="calcLineTotal('Quantity3', 'UnitPrice3', 'LineTotal3')"></td>
+            <td><input type="text" id="LineTotal3" readonly name="LineTotal" onchange="subtotal()"></td>
+            </tr>
+
+            <tr>
+            <td><input type="text" id="ProductID4" name="ProductID"></td>
+            <td><input type="text" id="ProductDescription4" name="ProductDescription"></td>
+            <td><input type="text" id="Quantity4" name="Quantity" oninput="calcLineTotal('Quantity4', 'UnitPrice4', 'LineTotal4')"></td>
+            <td><input type="text" id="UnitPrice4" name="UnitPrice" oninput="calcLineTotal('Quantity4', 'UnitPrice4', 'LineTotal4')"></td>
+            <td><input type="text" id="LineTotal4" readonly name="LineTotal" onchange="subtotal()"></td>
+            </tr>
+
+            <tr>
+            <td><input type="text" id="ProductID5" name="ProductID"></td>
+            <td><input type="text" id="ProductDescription5" name="ProductDescription"></td>
+            <td><input type="text" id="Quantity5" name="Quantity" oninput="calcLineTotal('Quantity5', 'UnitPrice5', 'LineTotal5')"></td>
+            <td><input type="text" id="UnitPrice5" name="UnitPrice" oninput="calcLineTotal('Quantity5', 'UnitPrice5', 'LineTotal5')"></td>
+            <td><input type="text" id="LineTotal5" readonly name="LineTotal" onchange="subtotal()"></td>
+            </tr>
+
+            
+            </table>
+        </div>
+
+
+
+    <div class="BaseContainer">
+        <div class = "ContainerNote">
+            <textarea id = "InstallNotes" name ="InstallNotes" placeholder="Installation Notes"></textarea>
+        </div>
+
+        
+    </div>
+
+    
+
+   
+
+
+
+
+
+
+    <div class = "BaseContainer">
+        <div class = "ContainerTots">
+            <table id ="totals">
+
+                <tr>
+                    <td><label for="DoQ">Requested Install Date</label></td>
+                    <td><input type="date" id = "RID" name="RID"></td>
+                </tr>
+                <tr>
+                    <td>Subtotal</td>
+                    <td><input type="text" id="Subtotal" name="Subtotal" readonly></td>
+                </tr>
+
+                <tr>
+                    <td>GST</td>
+                    <td><input type="text" id="GST" name="GST" readonly></td>
+                </tr>
+
+
+                <tr>
+                    <td>Total</td>
+                    <td><input type="text" id="Total" name="Total" readonly></td>
+                </tr>
+
+                <tr>
+                    <td><label for="Deposit">Deposit</label></td>
+                    <td><input type="text" id = "Deposit" name="Deposit" onchange="total()"></td>
+                </tr>
+
+                <tr>
+                    <td><label for ="totdue">Total Due</label></td>
+                    <td><input type="text" id = "totdue" name="totdue" readonly ></td>
+                </tr>
+            </table>
+
+
+        
+        </div>
+
+
+
+      
+        
+    
+    </div>
+
+
+
+
+
+
+
+     
+    
+
+    <div class = "final">
+    
+        <input type="submit" value="Submit">  
+    </div>
+
+
+   
+
+    </form>
+
+
+
+
+
+
+</body>
+</html>
